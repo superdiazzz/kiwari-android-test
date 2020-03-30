@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Kiwari Android Test</string>
+    <string name="textfield_label">Username</string>
+    <string name="textfield_label_two">Password</string>
+    <string name="textfield_message">Ketik pesan</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
+    <string name="my_token">dZSZ9AKhTtK6fIIUbtOHK6:APA91bF-wDbQ7kpUuWRcoe2KJisMd6WI6bwyLXU1_OsiYIwrjbl-_n2xfFltqt-DTPQtTLCMCCAxnxcwCmS9QEKDnJVfOcx3hsdZ9SsacvL4RZYqu1Xkmo94zITeMQkJELP8QmWTEWnP</string>
+
+</resources>
