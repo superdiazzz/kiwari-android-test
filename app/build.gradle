@@ -6,6 +6,7 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.github.triplet.play'
 
 
 android {
@@ -19,6 +20,17 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release {
+            // You need to specify either an absolute path or include the
+            // keystore file in the same directory as the build.gradle file.
+            storeFile file("kiwaritest.jks")
+            storePassword "123456789"
+            keyAlias "kiwari"
+            keyPassword "123456789"
+        }
+    }
+
 
     dataBinding {
         enabled = true
@@ -28,8 +40,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
+}
+
+play {
+    track = 'alpha' // set track for playstore  like 'production','beta','alpha'
+    serviceAccountEmail = 'kiwaritest@api-7196515771782491829-266529.iam.gserviceaccount.com' //paste your service account email
+    jsonFile = file('/PlayJson/play-store-key.json') // copy this line as it is do not modify
 }
 
 dependencies {
@@ -62,6 +81,15 @@ dependencies {
 
     //Picasso
     implementation "com.squareup.picasso:picasso:2.71828"
+
+
+    // RETROFIT
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0' // for test String
+
 
 
     testImplementation 'junit:junit:4.12'
